@@ -1,5 +1,4 @@
 import bitsByWordsCount from "../static/bitsByWordCount.json";
-import crypto from "crypto";
 
 export default function Status({ wordsCount, diceNumbers }) {
   function getBitString() {
@@ -8,29 +7,29 @@ export default function Status({ wordsCount, diceNumbers }) {
       .join("")
       .slice(0, bitsByWordsCount[wordsCount]);
   }
-  function calculateChecksum() {
-    const bits = getBitString();
+  // function calculateChecksum() {
+  //   const bits = getBitString();
 
-    const bytes = [];
-    for (let i = 0; i < bits.length; i += 8) {
-      // 8bit(1byte) 단위로 자르기
-      const byte = bits.slice(i, i + 8);
-      bytes.push(parseInt(byte, 2));
-    }
+  //   const bytes = [];
+  //   for (let i = 0; i < bits.length; i += 8) {
+  //     // 8bit(1byte) 단위로 자르기
+  //     const byte = bits.slice(i, i + 8);
+  //     bytes.push(parseInt(byte, 2));
+  //   }
 
-    // Buffer로 변환
-    const entropy = Buffer.from(bytes);
+  //   // Buffer로 변환
+  //   const entropy = Buffer.from(bytes);
 
-    // Checksum 계산
-    const hash = crypto.createHash("sha256").update(entropy).digest("hex");
-    const checksumLength = (entropy.length * 8) / 32;
-    const checksum = parseInt(hash, 16)
-      .toString(2)
-      .padStart(256, "0")
-      .slice(0, checksumLength); // 앞의 checksumLength 개수만큼
+  //   // Checksum 계산
+  //   const hash = crypto.createHash("sha256").update(entropy).digest("hex");
+  //   const checksumLength = (entropy.length * 8) / 32;
+  //   const checksum = parseInt(hash, 16)
+  //     .toString(2)
+  //     .padStart(256, "0")
+  //     .slice(0, checksumLength); // 앞의 checksumLength 개수만큼
 
-    return checksum;
-  }
+  //   return checksum;
+  // }
   return (
     <div>
       <h1>현재 상태</h1>
@@ -68,7 +67,7 @@ export default function Status({ wordsCount, diceNumbers }) {
       </div>
       <div>
         <h2>Checksum</h2>
-        <p>{}</p>
+        {/* <p>{calculateChecksum()}</p> */}
       </div>
     </div>
   );
