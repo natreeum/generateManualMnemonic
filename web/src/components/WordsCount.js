@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function WordsCount(props) {
   return (
     <div>

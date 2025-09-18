@@ -21,6 +21,12 @@ function Entropy({ diceNumbers, setDiceNumbers, wordsCount }) {
     }
     setDiceNumbers([...diceNumbers]);
   }
+
+  function onClickUndoButton() {
+    diceNumbers.pop();
+    setDiceNumbers([...diceNumbers]);
+  }
+
   return (
     <div>
       <h1>2. 나만의 엔트로피 생성하기</h1>
@@ -52,6 +58,9 @@ function Entropy({ diceNumbers, setDiceNumbers, wordsCount }) {
         </button>
         <button onClick={onClickAutoFillButton} style={{ margin: "10px" }}>
           나머지 자동으로 채우기
+        </button>
+        <button onClick={onClickUndoButton} style={{ margin: "10px" }}>
+          1회 되돌리기
         </button>
       </div>
     </div>

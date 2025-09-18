@@ -1,27 +1,44 @@
-import Entropy from "./components/Entropy";
-import WordsCount from "./components/WordsCount";
-
 import "./App.css";
 
-import { useState } from "react";
+import Entropy from "./components/Entropy";
+import WordsCount from "./components/WordsCount";
+import PassPhrase from "./components/PassPhase";
 import Status from "./components/Status";
+import DerivedWallets from "./components/derivedWallets";
+
+import { useState } from "react";
 
 function App() {
   const [wordsCount, setWordsCount] = useState(24);
   const [diceNumbers, setDiceNumbers] = useState([]);
+  const [passPhrase, setPassPhrase] = useState("");
 
   return (
     <div className="container">
-      <div className="left-panel">
+      <div className="upper-panel">
+        <div className="upper-left-panel">
+          <Status
+            wordsCount={wordsCount}
+            diceNumbers={diceNumbers}
+            passPhrase={passPhrase}
+          />
+        </div>
+        <div className="upper-right-panel">
+          <DerivedWallets
+            diceNumbers={diceNumbers}
+            passPhrase={passPhrase}
+            wordsCount={wordsCount}
+          />
+        </div>
+      </div>
+      <div className="lower-panel">
         <WordsCount setWordsCount={setWordsCount} />
         <Entropy
           diceNumbers={diceNumbers}
           setDiceNumbers={setDiceNumbers}
           wordsCount={wordsCount}
         />
-      </div>
-      <div className="right-panel">
-        <Status wordsCount={wordsCount} diceNumbers={diceNumbers} />
+        <PassPhrase setPassPhrase={setPassPhrase} />
       </div>
     </div>
   );
