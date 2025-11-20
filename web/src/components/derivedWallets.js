@@ -1,6 +1,5 @@
 import bitsByWordsCount from "../static/bitsByWordCount.json";
 import { ethers } from "ethers";
-import * as btc from "bitcoinjs-lib";
 
 export default function DerivedWallets({
   diceNumbers,
