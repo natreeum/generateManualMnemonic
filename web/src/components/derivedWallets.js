@@ -57,8 +57,8 @@ export default function DerivedWallets({
                 case 0: // BTC
                 // break;
                 case 60: // ETH
-                  wallet = node;
                 default: // fall through to ETC
+                  wallet = node;
               }
               return (
                 <li key={i} style={{ margin: "10px" }}>
