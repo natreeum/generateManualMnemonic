@@ -1,10 +1,12 @@
 import bitsByWordsCount from "../static/bitsByWordCount.json";
 import { ethers } from "ethers";
+import * as btc from "bitcoinjs-lib";
 
 export default function DerivedWallets({
   diceNumbers,
   passPhrase,
   wordsCount,
+  network,
 }) {
   function getBitString() {
     return diceNumbers
@@ -45,14 +47,23 @@ export default function DerivedWallets({
           Array(10)
             .fill(0)
             .map((_, i) => {
-              const wallet = ethers.HDNodeWallet.fromMnemonic(
-                finalBitsToWords().mnemonic,
+              let wallet;
+              const mnemonic = finalBitsToWords().mnemonic;
+              const path = `m/44'/${network}'/0'/0/${i}`;
+              const node = ethers.HDNodeWallet.fromMnemonic(mnemonic, path);
 
-                `m/44'/60'/0'/0/${i}`
-              );
+              switch (network) {
+                case 144: // XRP
+                // break;
+                case 0: // BTC
+                // break;
+                case 60: // ETH
+                  wallet = node;
+                default: // fall through to ETC
+              }
               return (
-                <li key={i}>
-                  {`m/44'/60'/0'/0/${i}`}
+                <li key={i} style={{ margin: "10px" }}>
+                  {`m/44'/${network}'/0'/0/${i}`}
                   <br />
                   Address : {wallet.address} <br />
                   Public Key : {wallet.publicKey} <br />

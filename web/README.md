@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+# Generate Manual Mnemonic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://generate-manual-mnemonic.vercel.app/]
 
-## Available Scripts
+## 사용 방법
 
-In the project directory, you can run:
+1. 니모닉을 구성할 단어 개수를 선택합니다.
 
-### `npm start`
+2. 엔트로피 만들기 - 실제로 주사위를 던지면서 나온 결과값을 버튼을 눌러 입력합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   - 상단 `Mnemonic Words`에 `엔트로피가 충분하지 않습니다. 주사위를 더 굴려주세요.` 라는 문구가 없어질 때까지 던져줍니다.
+   - 24words 의 경우 약 130회 던져야합니다.
+   - 한번에 여러개의 주사위를 던지면 보다 빠르게 엔트로피를 채울 수 있습니다.
+   - 상단 `숫자별 분포`를 보고 한 숫자에 너무 몰려있지 않은지 확인하고, 너무 몰려있다고 판단되면 처음부터 다시합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. (선택사항) 생성된 니모닉 구문 외에 추가로 비밀번호를 설정하고 싶다면 입력하여 `적용하기` 버튼을 누릅니다.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. 3번까지 완료했다면 Mnemonic Word Phrase(비밀구문) 은 생성이 되었습니다. 이제 원하는 네트워크를 선택하여 Mnemonic 으로부터 파생된 지갑주소를 조회해 보세요.
